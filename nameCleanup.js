@@ -8,10 +8,10 @@ function getName(type, fullname){
     });
   }
   function getFirstName(fullname){
-  	return /^\w+\.\s+\w+(?=\s)|^\S+(?=\s)/.exec(cleanName(fullname));
+  	return /^\w+\.\s+\w+(?=\s)|^\S+(?=\s)/.exec(cleanName(fullname)).toString();
   }
   function getLastName(fullname){
-  	return /\w*'\w*$|\w*-\w*$|\w+$/.exec(cleanName(fullname));
+  	return /\w*'\w*$|\w*-\w*$|\w+$/.exec(cleanName(fullname)).toString();
   }
   if(type == "first"){
     return getFirstName(cleanName(fixCase(fullname)));
