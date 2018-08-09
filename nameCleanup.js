@@ -1,6 +1,6 @@
 function getName(type, fullname){
   function cleanName(fullname){
-    return fullname.replace(/,.+/, '').replace(/\(|\)|"|\s*\b[jJ][rR]\b.*|\s*\b[sS][rR]\b.*|\s*\bIi\b.*|\s*\bIii\b.*|\s*\bIv\b.*|\s+$/g, '').replace(/\.$/, '');
+    return fullname.replace(/,.+/, '').replace(/\(|\)|"|\s*\bJr\b.*|\s*\bSr\b.*|\s*\bIi\b.*|\s*\bIii\b.*|\s*\bIv\b.*|\s+$/g, '').replace(/\.$/, '');
   }
   function fixCase(fullname){ 
     return fullname.replace(/\w\S*/g, function(txt){
