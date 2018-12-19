@@ -1,7 +1,7 @@
 function getName(type, fullname){
   function cleanName(fullname){
     var regXcommaplus = new RegExp(",.+");
-    var regXjunk  = new RegExp('\\(|\\)|"|\\s*\\bJr\\b.*|\\s*\\bSr\\b.*|\\s*\\bIi\\b.*|\\s*\\bIii\\b.*|\\s*\\bIv\\b.*|\\s+$', 'g');
+    var regXjunk  = new RegExp('\\(|\\)|"|\\s*\\b[jJ][rR]\\b.*|\\s*\\b[sS][rR]\\b.*|\\s*\\bIi\\b.*|\\s*\\bI[Ii][Ii]\\b.*|\\s*\\bI[Vv]\\b.*|\\s+$', 'g');
     var regXendDot = new RegExp("\\.$");
     return fullname.replace(regXcommaplus, "").replace(regXjunk, "").replace(regXendDot, "");
   }
@@ -23,3 +23,7 @@ function getName(type, fullname){
     return getLastName(cleanName(fixCase(fullname)));
   }
 }
+
+//Usage: 
+getName('first', 'Poopie "Chris" Butthole III') //Poopie
+getName('last', 'Poopie "Chris" Butthole III') //Butthole
