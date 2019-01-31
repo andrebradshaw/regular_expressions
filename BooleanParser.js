@@ -4,7 +4,7 @@ function getQuoted(str){
 	var x = /(?<="\b).+?(?=\b")/g;
 	return str.match(x);
 }
-// getQuoted(kw)
+getQuoted(kw)
 
 function getOrGroups(str){
 	var x = /\(.+?\)/gi;
@@ -16,7 +16,15 @@ function getOrGroups(str){
 function getAndGroups(str){
 	var cleanse = str.replace(/\(.+?\)/g, '').replace(/\bAND\b/g, '');
 	var x = /(?<!")\b\w+\b(?!")/gi;
-	return cleanse.match(x);
+	var quoted = getQuoted(cleanse);
+	if(quoted != null){
+		var arr = [];
+		quoted.forEach(elm=>{arr.push(elm)})
+		cleanse.match(x).forEach(elm=>{arr.push(elm)});
+		return arr;
+    }else{
+		return cleanse.match(x);
+	}
 }
 // getAndGroups(kw)
 
